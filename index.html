@@ -60,13 +60,13 @@
 
                         <div class="input">
                             <label for="password">PASSWORD <abbr title="required">*</abbr></label>
-                            <input type="password" name="password" id="password" required>
-                            <p class="errorOne"></p>
+                            <input type="password" name="password" id="password" minlength="8" required>
+                            <div id="errorOne"></div>
                         </div>
 
                         <div class="input">
                             <label for="confirmpassword">CONFIRM PASSWORD <abbr title="required">*</abbr></label>
-                            <input type="password" name="confirm_password" id="confirm_password" required>
+                            <input type="password" name="confirm_password" id="confirm_password" minlength="8" required>
                         </div>
 
                     </div>
@@ -81,5 +81,37 @@
             </div>
         </div>
     </div>
+    <script>
+        const pwd = document.getElementById("password");
+        const pwdConf = document.getElementById("confirm_password");
+        const error = document.getElementById("errorOne");
+
+        pwdConf.addEventListener("keyup", () => {
+            if (pwd.value != pwdConf.value) {
+                error.textContent = "Passwords do not match";
+                pwd.classList.add("error");
+                pwdConf.classList.add("error");
+            }
+            else if (pwd.value === pwdConf.value) {
+                error.textContent = "";
+                pwd.classList.remove("error");
+                pwdConf.classList.remove("error");
+            };
+        });
+
+        pwd.addEventListener("keyup", () => {
+            if (pwd.value != pwdConf.value) {
+                error.textContent = "Passwords do not match";
+                pwd.classList.add("error");
+                pwdConf.classList.add("error");
+            }
+            else if (pwd.value === pwdConf.value) {
+                error.textContent = "";
+                pwd.classList.remove("error");
+                pwdConf.classList.remove("error");
+            };
+        });
+
+    </script>
 </body>
 </html>

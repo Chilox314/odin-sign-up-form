@@ -127,7 +127,7 @@ button {
     outline: none;
 }
 
-.errorOne {
+#errorOne {
     color:rgb(168, 0, 0);
     font-size: 10px;
     height: 14px;
